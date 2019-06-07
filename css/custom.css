@@ -173,3 +173,30 @@ blockquote {
 .main-nav .has-children .has-children > a:after {
     content: '\f105';
 }
+
+/* Commic Formating */
+.comicpage {
+  background: black;
+  display: flex;
+}
+.comic-nav {
+  margin: 0;
+  flex: 1 0;
+  display: flex;
+}
+.comic-nav a {
+  font-size: 4em;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.comic-nav a:hover {
+  background: #454B4D;
+  color: white;
+}
+.nav-icon {
+  position: sticky;
+  margin-top: 50px;
+}

@@ -1,40 +1,29 @@
 {% extends 'partials/base.html.twig' %}
-{% set page_number = page.title %}
-{% set progress = page.collection(page.path) %}
+{% set comic_page = page.collection %}
+{# {% set page_number = page.title %} #}
 
 
 
 {% block content %}
+<div class="comicpage">
+  <div class="comic-nav">
+    {% if not comic_page.isFirst(page.path) %}<a class="nav nav-first" href="{{ comic_page.first(page.path).url }}"><div class="icon"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></div></a>{% endif %}
+    {% if not comic_page.isFirst(page.path) %}<a class="nav nav-prev" href="{{ comic_page.nextSibling(page.path).url }}"><div class="icon"><i class="fa fa-chevron-left"></i></div></a>{% endif %}
+  </div>
+
+  <div class="comic-block">
     {{ page.content }}
-
-<h3> progress:{{ progress }}</h3>
-
-    <div class="comic-block">
     {% for image in page.media.images %}
-    
-        <div class="comic-image" align="center">
-            <a href="{{page_number + 1}}">{{ image.html }}</a>
-        </div>
-    
+      <div class="comic-image" align="center">
+          {% if not comic_page.isLast(page.path) %}<a href="{{ comic_page.prevSibling(page.path).url }}">{% endif %}{{ image.html }}{% if not comic_page.isLast(page.path) %}</a>{% endif %}
+      </div>
     {% endfor %}
-    </div>
+  </div>
 
+  <div class="comic-nav">
+      {% if not comic_page.isLast(page.path) %}<a class="nav nav-next" href="{{ comic_page.prevSibling(page.path).url }}"><i class="fa fa-chevron-right"></i></a>{% endif %}
+      {% if not comic_page.isLast(page.path) %}<a class="nav nav-next" href="{{ comic_page.last(page.path).url }}"><i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></a>{% endif %}
+  </div>
 
-    <div id="navigation" align="center">
-        <ul>
-        <li>First</li>
-        <li>
-            {% if not progress.isFirst(page.path) %}
-                <a class="nav nav-prev" href="{{ progress.nextSibling(page.path).url }}"> <i class="fa fa-chevron-left"></i></a>
-            {% endif %}
-        </li>
-
-        <li>
-            {% if not progress.isLast(page.path) %}
-                <a class="nav nav-next" href="{{ progress.prevSibling(page.path).url }}"><i class="fa fa-chevron-right"></i></a>
-            {% endif %}
-        </li>
-        <li>First</li>
-    </div>
-
+</div>
 {% endblock %}
