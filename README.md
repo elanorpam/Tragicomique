@@ -5,3 +5,4 @@ The **Tragicomique** Theme is for [Grav CMS](http://github.com/getgrav/grav).  T
 ## Description
 
 A theme for webcomics.
+# Tragicomique
