@@ -1,0 +1,11 @@
+{% extends 'partials/base.html.twig' %}
+{% set collection = page.collection() %}
+
+{% block content %}
+
+{# creating a sort of blog-post-listing for character pages #}
+{% for child in collection %}
+        {% include 'character.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+{% endfor %}
+
+{% endblock %}
