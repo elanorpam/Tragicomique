@@ -1,14 +1,13 @@
 {% extends 'partials/base.html.twig' %}
-{% set comic_page = page.collection %}
-{# {% set page_number = page.title %} #}
-
+{# Here we get the collection of the parent #}
+{% set comic_page = page.parent.children %}
 
 
 {% block content %}
-<div class="comicpage">
+<div class="comic-page">
   <div class="comic-nav">
-    {% if not comic_page.isFirst(page.path) %}<a class="nav nav-first" href="{{ comic_page.first(page.path).url }}"><div class="icon"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></div></a>{% endif %}
-    {% if not comic_page.isFirst(page.path) %}<a class="nav nav-prev" href="{{ comic_page.nextSibling(page.path).url }}"><div class="icon"><i class="fa fa-chevron-left"></i></div></a>{% endif %}
+    {% if not comic_page.isFirst(page.path) %}<a class="nav nav-first" href="{{ comic_page.first(page.path).url }}"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i></a>{% endif %}
+    {% if not comic_page.isFirst(page.path) %}<a class="nav nav-prev" href="{{ comic_page.nextSibling(page.path).url }}"><i class="fa fa-chevron-left"></i></a>{% endif %}
   </div>
 
   <div class="comic-block">

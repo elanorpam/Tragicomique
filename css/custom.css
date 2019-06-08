@@ -4,7 +4,9 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
+html {
+  background: black;
+}
 body {
     font-size: 1rem;
     line-height: 1.7;
@@ -174,14 +176,20 @@ blockquote {
     content: '\f105';
 }
 
-/* Commic Formating */
-.comicpage {
+/* Comic Formating */
+.comic-page {
   background: black;
   display: flex;
 }
+/* this makes images responsive */
+.comic-block img {
+  max-width: 100%;
+}
+/* Flex baseline of 140px is so that nave sections remain on smaller devices
+even when there is no first/previous or next/last options */
 .comic-nav {
   margin: 0;
-  flex: 1 0;
+  flex: 1 0 140px;
   display: flex;
 }
 .comic-nav a {
@@ -195,8 +203,4 @@ blockquote {
 .comic-nav a:hover {
   background: #454B4D;
   color: white;
-}
-.nav-icon {
-  position: sticky;
-  margin-top: 50px;
 }
