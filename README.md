@@ -1,18 +1,21 @@
 # Tragicomique Theme
 
-The **Tragicomique** Theme is for [Grav CMS](http://github.com/getgrav/grav) is for webcomics.
+The **Tragicomique** Theme for [Grav CMS](http://github.com/getgrav/grav) is a simple webcomic-ready theme.
 
 ---
 
 ## Usage
 
-To set up a webcomic you just need a simple file structure and naming convention, create a folder for your comic and name the markdown file within `comic.md` all you need in that file is a title frontmater for example 
+To set up a webcomic all you need is a simple file structure and naming convention. 
+
+- Create a folder for your comic and name the markdown file within `comic.md`. All you need inside this file is a title/frontmater, such as  
 
 ```yaml
 title: My Cool Comic
 ```
 
-Then create subfolders for each page of your comic and name their markdown files `page.md` again place a title in the frontmater, add an image file to the folder and your done. Keep adding as many pages as you need!
+- Create a subfolder for each page of your comic, and name their markdown files `page.md`. Again, place a title in the frontmater, and add the comic image file to the folder.
+- That's it! You're done. Keep adding as many folders and pages as you need!
 
 Your grav pages folder structure will look something like this, a name in square `[]` denotes a folder:
 
