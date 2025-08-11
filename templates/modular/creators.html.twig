@@ -1,0 +1,16 @@
+{% set creators = { items: {'@taxonomy.category':'creators'}, 'order': {'by': 'folder', 'dir': 'asc'}, 'pagination': false} %}
+{% set creators = page.collection(creators) %}
+
+{% block content %}
+
+{# creating a sort of blog-post-listing for character pages #}
+<div class="secondary-char">
+{% for child in creators %}
+        <div class="char-block">
+        {% include 'creator.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+        </div>
+       
+{% endfor %}
+</div>
+
+{% endblock %}
