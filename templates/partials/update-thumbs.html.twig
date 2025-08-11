@@ -1,0 +1,22 @@
+{% set newpage = page.collection('latest') %}
+{% set firstpage = page.collection('oldest') %}
+
+<div class="flex-box">
+        {% for p in newpage %}
+                <div align="center">
+                        <a href="{{ p.url }}">
+                                {{ p.media.images|first.crop(50,50,800,350).html }}
+                                <p> Latest Page </p>
+                        </a>
+                </div>
+        {% endfor %}
+
+        {% for p in firstpage %}
+                <div align="center">
+                        <a href="{{ p.url }}">
+                                {{ p.media.images|first.crop(100,500,800,350).html }}
+                                <p> First Page </p>
+                        </a>
+                </div>
+        {% endfor %}
+</div>

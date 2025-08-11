@@ -1,0 +1,19 @@
+{% if not comic_page.isFirst(page.path) %}
+    <a href="{{ comic_page.first(page.path).url }}">
+    First page  </a>
+{% endif %}
+
+{% if not comic_page.isFirst(page.path) %}
+    <a id="prev" href="{{ comic_page.nextSibling(page.path).url }}">
+        Previous page </a>
+{% endif %}
+
+{% if not comic_page.isLast(page.path) %}
+    <a id="next" href="{{ comic_page.prevSibling(page.path).url }}">
+        Next page</a>
+{% endif %}
+
+{% if not comic_page.isLast(page.path) %}
+    <a href="{{ comic_page.last(page.path).url }}">
+        Last page</a>
+{% endif %}

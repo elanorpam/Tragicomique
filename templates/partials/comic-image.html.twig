@@ -1,0 +1,15 @@
+{% for image in page.media.images %}
+
+<div align="center" class="comic-image">
+
+{% if not comic_page.isLast(page.path) %}
+    <a href="{{ comic_page.prevSibling(page.path).url }}">
+    {% endif %}
+        {{ image.first.html(page.header.alt_text) }}
+    {% if not comic_page.isLast(page.path) %}
+    </a>
+{% endif %}
+
+</div>
+
+{% endfor %}

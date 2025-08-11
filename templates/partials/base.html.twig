@@ -1,0 +1,102 @@
+{% set theme_config = attribute(config.themes, config.system.pages.theme) %}
+<!DOCTYPE html>
+<html lang="{{ grav.language.getActive ?: theme_config.default_lang }}">
+<head>
+{% block head %}
+    <meta charset="utf-8" />
+    <title>{% if header.title %}{{ header.title|e('html') }} | {% endif %}{{ site.title|e('html') }}</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% include 'partials/metadata.html.twig' %}
+
+    <meta property="og:image" content="{{ base_url }}{{ page.media.images|first.crop(0,0,1000,1414).url(true) }}">
+    <!--meta property="og:image" content="{{ base_url }}{{ page.media.images|first.url(true) }}"-->
+    <meta property="og:title" content="{{ uri.base }}">
+    <meta property="og:description" content="Read the latest page: {{ page.title }}">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content=" {{ page.link }}">
+    <meta name="twitter:title" content="{{ uri.base }}">
+    <meta name="twitter:description" content="Read the latest page: {{ page.title }}">
+    <meta name="twitter:image" content="{{ base_url }}{{ page.media.images|first.crop(0,0,1000,1414).url(true) }}">
+    <!--meta name="twitter:image" content="{{ base_url }}{{ page.media.images|first.url(true) }}"-->
+
+    <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link rel="canonical" href="{{ page.url(true, true) }}" />
+    <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet"> 
+
+    <link rel="alternate" type="application/atom+xml" title="{{ uri.base }}" href="{{ base_url }}/comic.atom" />
+    <link rel="alternate" type="application/rss+xml" title="{{ uri.base }}" href="{{ base_url }}/comic.rss" />
+    <link rel="alternate" type="application/json" title="{{ uri.base }}" href="{{ base_url }}/comic.json" />
+    
+
+    {% block stylesheets %}
+        {% do assets.addCss('https://unpkg.com/purecss@1.0.0/build/pure-min.css', 100) %}
+        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', 99) %}
+        {% do assets.addCss('theme://css/variables.css', 98) %}
+        {% do assets.addCss('theme://css/basetheme.css', 97) %}
+        {% do assets.addCss('theme://css/custom.css', 96) %}
+        {% do assets.addCss('theme://css/verbles.css', 95) %}
+    {% endblock %}
+    {{ assets.css()|raw }}
+
+    {% block javascripts %}
+        {% do assets.addJs('jquery', 100) %}
+        {% do assets.addJs('theme://js/comic-nav.js', 100) %}
+    {% endblock %}
+    {{ assets.js() }}
+
+{% endblock head%}
+</head>
+
+<body class="{{ page.header.body_classes }}">
+
+<div id="top" class="page-body">
+
+{% block header %}
+<div id="bg-top">
+    <div id="header" class="header">
+        <div class="wrapper padding">
+            <div class="logo center">
+            <a class="fas fa-theater-masks" href="{{ base_url == '' ? '/' : base_url }}"> &nbsp;
+                {{ config.site.title }}
+            </a>
+            </div>
+            <hr>
+            <nav class="main-nav navigation">
+            {% block header_navigation %}
+                {% include 'partials/navigation.html.twig' %}
+            {% endblock %}
+            </nav>
+        </div>
+
+    </div>
+</div>
+
+<div class="navbar">
+    <nav class="navbar-nav">
+       {{ block('header_navigation') }}
+    </nav>
+</div>
+
+{% endblock %}
+<hr>
+{% block body %}
+    <section id="body">
+        <div class="wrapper">
+        {% block content %}{% endblock %}
+        </div>
+    </section>
+{% endblock %}
+
+{% include 'partials/footer.html.twig' %}
+
+{% block bottom %}
+    {{ assets.js('bottom') }}
+{% endblock %}
+
+</div>
+
+</body>
+</html>

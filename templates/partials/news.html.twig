@@ -1,0 +1,16 @@
+{% set news = { items: {'@taxonomy.category':'news'}, 'order': {'by': 'date-published', 'dir': 'desc'}, 'pagination': false } %}
+{% set collection = page.collection(news) %}
+
+<h2 class="char-list">Latest News</h2>
+<div class="flex-container box">
+{% block content %}
+
+{# creating a sort of blog-post-listing for the news #}
+
+{% for child in collection[:3] %}
+        {% include 'news_item.html.twig' with {'blog':page, 'page':child, 'truncate':false} %}
+{% endfor %}
+
+{% endblock %}
+
+</div>
