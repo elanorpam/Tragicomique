@@ -1,4 +1,6 @@
 name: Tragicomique
+slug: tragicomique
+type: theme
 version: 0.1.0
 description: A theme for webcomics.
 icon: rebel
@@ -6,7 +8,7 @@ author:
   name: Paula Vieira
   email: paula.v.neldoreth@gmail.com
 homepage: https://github.com/elanorpam/grav-theme-tragicomique
-demo: http://demo.yoursite.com
+demo: http://test.pathtotimbala.com
 keywords: grav, theme, etc
 bugs: https://github.com/elanorpam/grav-theme-tragicomique/issues
 readme: https://github.com/elanorpam/grav-theme-tragicomique/blob/develop/README.md
@@ -16,12 +18,12 @@ form:
   validation: loose
   fields:
     dropdown.enabled:
-        type: toggle
-        label: Dropdown in Menu
-        highlight: 1
-        default: 1
-        options:
-          1: PLUGIN_ADMIN.ENABLED
-          0: PLUGIN_ADMIN.DISABLED
-        validate:
-          type: bool
+      type: toggle
+      label: Dropdown in Menu
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
