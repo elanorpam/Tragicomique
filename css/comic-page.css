@@ -1,0 +1,199 @@
+/* Comic Formating */
+    
+.comic-page {
+    margin: auto;
+    padding: 0 2em;
+}
+/* for mobile */
+
+@media only screen and (max-width: 1024px) {
+    [class*="comic-page"] {
+        padding: 0;
+    }
+}
+
+/* hide or show on mobile */
+
+@media only screen and (max-width: 600px) {
+    .comic-nav.mobile-hidden {display: none !important;}
+    
+    #small-nav2.mobile-show {display: flex !important;}
+}
+
+@media only screen and (min-width: 600px) {
+    .comic-nav.mobile-hidden { display: flex !important; }
+    
+    #small-nav2.mobile-show {display: none !important;}
+}
+
+/* this makes images responsive */
+
+.comic-block img {
+    max-width: 100%;
+}
+
+/* giving image a frame */
+
+.comic-page img {
+    border: solid 1px var(--color-border);
+}
+
+@media only screen and (max-width: 1024px) {
+    .comic-page img {
+            padding: 0;
+            background:none;
+            border: solid 1px var(--color-border);
+    }
+}
+
+/* Comment styling */
+
+.comments {
+    max-width: 60em;
+    padding: 1em;
+    margin: auto;
+}
+
+.comment-policy {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    color: white !important;
+}
+
+/* Text under the page */
+
+.page-text {
+    margin: -1em auto 1em;
+    padding: 0em 2em;
+    max-width: 65em;
+    background-size: 4em;
+    border: 0;
+    overflow: hidden;
+}
+
+/* Flex baseline of 140px is so that nave sections remain on smaller devices
+even when there is no first/previous or next/last options */
+    
+.comic-nav {
+    margin: auto;
+    padding: 1em;
+    flex: 0 40px;
+    display: flex;
+    max-width: 71.3em
+}
+
+.comic-nav a {
+    font-size: 1.8em;
+    flex-grow: 1;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.comic-nav a:hover {
+    color: var(--color-link2);
+    text-shadow: none;
+}
+/* for mobile */
+
+@media only screen and (max-width: 450px) {
+    [class="comic-nav"] {
+        max-width: 100%;
+        padding: 0;
+        font-size: 9px;
+    }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 740px) {
+    [class="comic-nav"] {
+        max-width: 100%;
+        padding: 0;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 741px) and (max-width: 1024px) {
+    [class="comic-nav"] {
+        max-width: 100%;
+        padding: 0;
+        font-size: 17px;
+    }
+}
+
+/* Small navigation on top of page */
+
+#small-nav {
+    padding: 0 0.5em 1.5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: normal;
+}
+
+#small-nav2 {
+    padding: 0.5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: normal;}
+
+#small-nav a {
+    display: block;
+}
+
+.nav-first::before {
+    content: "<< First";
+}
+.nav-prev::before {
+    content: "< Previous";
+}
+.nav-next::before {
+    content: "Next >";
+}
+.nav-last::before {
+    content: "Last >>";
+}
+
+.nav-first,
+.nav-prev,
+.nav-next,
+.nav-last {
+    width: 4em;
+    position: relative;
+    z-index: 50;
+}
+
+.nav-prev {flex: 2;}
+
+/* Storytime! */
+
+.storytime { 
+    margin: 2em auto;
+    background-color: var(--color-border);
+    color: black;
+    border: 3px black solid;
+    outline: 2em solid var(--color-box);
+    max-width: 60em;
+    padding: 1em 2em;
+    text-rendering: optimizeLegibility;
+}
+
+.storytime img {
+    border: none;
+    border-radius: 1em;
+}
+
+.storytime h1 { 
+    text-align: center; 
+    font-weight: normal; 
+    color: black;
+    margin-top: 0em;}
+
+.storytime p {
+    font-size: 1.3em;
+    line-height: normal;
+    margin-bottom: 0.5em;
+    text-indent: 1em;
+    font-family: serif;
+}

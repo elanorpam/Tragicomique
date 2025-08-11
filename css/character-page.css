@@ -1,0 +1,138 @@
+/* character image styling */
+    
+.char-block {
+    margin: auto auto 1em auto;
+    padding: 2em 2em 0;
+    max-width: 68em;
+    border: 0px solid;
+    overflow: hidden;
+}
+
+.char-list {
+    text-align: center;
+    font-size: 2.5em;
+    margin: -0.5em 0 0;
+}
+
+.char-pic {
+    position: relative;
+    margin-bottom: -1em;
+    width: auto;
+}
+
+.char-block:nth-child(odd) > .char-pic {
+    float: left;
+    margin-right: 1em;
+}
+
+.char-block:nth-child(even) > .char-pic {
+    float: right;
+    margin-left: 1em;
+}
+
+.char-pic img {
+    max-width: 15em;
+    border: 1px solid var(--color-border);
+    border-radius: 1em;
+    overflow: hidden;
+    margin: 0 1em 1em 0;
+}
+
+.char-text {
+    margin: auto;
+    padding: 3em 2em 0 0;
+}
+
+.char-text h2 {
+    margin-top: -1em;
+    padding-left: 2em;
+}
+
+/* Secondary Characters */
+
+.secondary-char {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 68em;
+    margin: auto;
+    justify-content: space-between;
+}
+.secondary-char .char-block {
+    margin: 1em 0 0;
+    width: calc( 33% - 1em );
+    clear: both;
+}
+
+.secondary-char .char-block .char-pic {
+    float: none;
+    margin: auto;
+}
+.secondary-char .char-pic img {
+    width: 100%;
+    object-fit: cover;
+    margin: auto;
+}
+
+.secondary-char h2 {
+    font-size: 1.3em;
+}
+
+
+/* Mobile Classes */
+
+@media screen and (max-width: 1024px) {
+    [class*="char-"] {
+        margin: auto auto 1em auto;
+        background: none;
+        padding: 0em;
+        }
+
+    .secondary-char .char-block {
+            width: 100%;
+            margin: 0;
+        }
+
+    .secondary-char .char-pic img {
+        display: block;
+        margin: auto;
+        }
+}
+
+@media screen and (max-width: 970px) {
+    .wrapper > .char-block:nth-child(even) > .char-text,
+    .wrapper > .char-block:nth-child(odd) > .char-text,
+    .wrapper > .char-block:nth-child(even) > .char-pic,
+    .wrapper > .char-block:nth-child(odd) > .char-pic,
+    .secondary-char > .char-block:nth-child(even) > .char-text,
+    .secondary-char > .char-block:nth-child(odd) > .char-text,
+    .secondary-char > .char-block:nth-child(even) > .char-pic,
+    .secondary-char > .char-block:nth-child(odd) > .char-pic,
+    .secondary-char .char-block
+     { 
+        float: none; 
+        display: block;
+        margin: 1em auto auto; 
+        min-height: max-content; 
+        padding: 1em 0;
+    }
+
+    .wrapper > .char-block:nth-child(even) > .char-text,
+    .wrapper > .char-block:nth-child(odd) > .char-text,
+    .secondary-char > .char-block > .char-text
+    { max-width: 90%;}
+
+    .char-pic img,
+    .secondary-char.char-pic img {
+        display: block;
+        margin: auto;
+    }
+
+}
+
+@media screen and (max-width: 420px) {
+    .char-pic img,
+    .secondary-char.char-pic img {
+        display: block;
+        max-width: 100%;
+    }
+}

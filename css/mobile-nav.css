@@ -1,0 +1,99 @@
+/* Mobile Container */
+
+@media screen and (min-width: 1025px) {
+    .navbar {display: none;}
+    }
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+        margin: auto;
+        position: relative;
+        transition: width 600ms ease;
+        top: 0;
+        z-index: 99;
+        }
+
+    .navbar-nav ul li::before,
+    .navbar-nav ul li::after {
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .navbar-nav ul li::before,
+    .navbar-nav ul li::after {
+        display: none;
+    }
+}
+
+/* *nav things */
+
+.navbar-nav { 
+    font-size: 1.2em;
+}
+
+.navbar-nav > ul {
+    display: flex;
+    padding-left: 0;
+    justify-content: space-evenly;
+    margin-top: 0;
+    padding-top: 1em;
+  }
+
+.navbar-nav ul li {
+    list-style: none;
+    padding: 0 0.5em;
+}
+
+.navbar-nav ul li a {
+    margin: auto;
+}
+
+.navbar-nav ul li.has-children {
+    display: block;
+    color: var(--color-link1);
+}
+
+.navbar-nav ul li.has-children ul {
+    padding-left: 0;
+    text-align: left;
+    display: block;
+}
+
+.navbar-nav ul li.has-children ul li:first-child {
+    padding-top: 0.5em;
+}
+
+.navbar-nav ul li.has-children ul li:last-child {
+    padding-bottom: 0.5em;
+}
+
+/* Submenu */
+
+.level-2 {
+    position: absolute;
+    z-index: 98;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    width: 7em;
+    margin-left: -4em;
+    height: max-content;
+    transition: 300ms ease;
+    visibility: hidden;
+}
+
+/* onclick trick */
+
+#overlay:checked ~ .level-2 {
+    visibility: visible;
+    transition: 300ms ease;
+}
+
+#overlay {
+    position: absolute;
+    top: 1.5em;
+    width: 4em;
+    height: 1em;
+    opacity: 0; /* hide this */
+    z-index: 99; /* and place it over the hamburger */
+}

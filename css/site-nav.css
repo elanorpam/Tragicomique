@@ -1,0 +1,92 @@
+/* Menu Settings */
+
+    .main-nav {
+        margin: auto;
+        padding-bottom: 0.5em;
+        color: var(--color-link1);
+        width: max-content;
+    }
+    
+    .main-nav ul {
+        font-family: sans-serif;
+        text-align: left;
+        font-size: 1em;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .main-nav ul li {
+        display: inline-block;
+        letter-spacing: normal;
+        padding: 0 1em;
+    }
+
+    .main-nav ul li:hover {
+        cursor: pointer;
+        color: var(--color-link2);
+    }
+
+    .main-nav ul li a {
+        position: relative;
+        display: inline;
+        line-height: 45px;
+        white-space: nowrap;
+        color: var(--color-link1);
+    }
+
+    /*Active dropdown nav item */
+    
+    .main-nav ul li:hover>a {
+        color: var(--color-link2);
+    }
+
+    /* Selected Dropdown nav item */
+    
+    .main-nav ul li.selected>a {
+        color: var(--color-link2);
+    }
+
+    /* Dropdown CSS */
+    
+    .main-nav ul li {
+        position: relative;
+    }
+    
+    .main-nav ul li ul {
+        position: absolute;
+        background-color: var(--color-link1);
+        color: var(--color-bg);
+        border: var(--color-box2) solid 1px;
+        border-radius: 5px;
+        min-width: 100%;
+        text-align: left;
+        font-size: 0.8em;
+        z-index: 999;
+        visibility: hidden;
+        opacity: 0;
+        transition: 300ms ease;
+    }
+    
+    .main-nav ul li ul a {color: var(--color-bg); text-shadow: none;}
+
+    .main-nav ul li ul li {
+        display: block;
+        padding: 0 10px;
+        background-image: none;
+    }
+        
+    .main-nav ul li ul ul {
+        left: 100%;
+        top: 0;
+    }
+    /* Active on Hover */
+    
+    .main-nav li:hover>ul {
+        opacity: 1;
+        visibility: visible;
+    }
+
+@media screen and (max-width: 1024px) {
+    .navigation {display: none;}
+}
+
