@@ -1,0 +1,26 @@
+{% extends 'partials/base.html.twig' %}
+{% set mainchars = { items: {'@taxonomy.category':'mainchars'}, 'order': {'by': 'folder', 'dir': 'asc'}, 'pagination': false} %}
+{% set secondary = { items: {'@taxonomy.category': 'secondarychars'}, 'order': {'by': 'folder', 'dir': 'asc'}, 'pagination': false} %}
+{% set main_charas = page.collection(mainchars) %}
+{% set second_charas = page.collection(secondary) %}
+
+{% block content %}
+
+{# creating a sort of blog-post-listing for character pages #}
+{% for child in main_charas %}
+<div class="char-block">
+        {% include 'character.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+</div>
+        
+{% endfor %}
+
+<div class="secondary-char">
+{% for child in second_charas %}
+        <div class="char-block">
+        {% include 'character.html.twig' with {'blog':page, 'page':child, 'truncate':true} %}
+        </div>
+       
+{% endfor %}
+</div>
+
+{% endblock %}

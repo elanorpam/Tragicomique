@@ -1,0 +1,56 @@
+{% extends 'partials/base.html.twig' %}
+{# Here we get the collection of the parent #}
+{% set comic_page = page.parent.children.published %}
+{% set chapter = page.parent %}
+
+
+{% block content %}
+    <div class="comic-page">
+
+
+{# small top navigation #}
+<div id="small-nav">
+{% include 'partials/comic-small-nav.html.twig' %}
+</div>
+
+{# Shows page image #}
+
+<div class="comic-block">
+    {% include 'partials/comic-image.html.twig' %}
+</div>
+
+{# Bottom navigation #}
+
+<div class="comic-nav mobile-hidden">
+    {% include 'partials/comic-nav.html.twig' %}
+</div>
+    
+{# small bottom nav for mobile only #}
+<div id="small-nav2" class="mobile-show">
+{% include 'partials/comic-small-nav.html.twig' %}
+</div>
+
+{# Author comments #}
+    <div align="center">
+            {% if page.content %}
+            <hr>
+<div class="page-text text-left">
+    <h2 class="text-center">{{page.title}}</h2>
+        <p class="date text-center"><span class="fa fa-calendar-plus">&nbsp;</span>{{ page.header.publish_date|date(system.pages.dateformat.short) }}</p>
+            {{ page.content }} </div>
+            {% endif %}
+            </div>
+    </div>
+
+{# Comments #}
+<hr>
+    
+<div class="comments">
+    {% include 'partials/comments.html.twig' %}
+</div>
+
+<hr>
+
+{% include 'partials/news.html.twig' %}
+    
+{% endblock %}

@@ -1,0 +1,8 @@
+{% block content %}
+    <div class="news-item">
+        <div align="center"><h2>{{page.title}}</h2>
+        <p class="date"><span class="fa fa-calendar-plus">&nbsp;</span>{{ page.header.publish_date|date(system.pages.dateformat.short) }}</p></div>
+            {{ page.content }}
+    </div>
+
+{% endblock %}

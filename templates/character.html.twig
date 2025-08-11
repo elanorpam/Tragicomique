@@ -1,0 +1,13 @@
+{% block content %}
+        <div class="char-pic">
+            {% for image in page.media.images %}
+                {{ image.html }}
+            {% endfor %}
+        </div>
+        <div class="char-text">
+        <h2>{{page.title}}</h2>
+            {{ page.content }}
+        </div>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'partials/base.html.twig' %}
+{% set chapters = { items: {'@taxonomy.category':'chapter'}, 'order': {'by': 'folder', 'dir': 'asc'}, 'pagination': false } %}
+{% set chapter_collection = page.collection(chapters) %}
+{% set omake = { items: {'@taxonomy.category':'omake'}, 'order': {'by': 'folder', 'dir': 'asc'}, 'pagination': false } %}
+{% set omake_collection = page.collection(omake) %}
+
+
+
+{% block content %}
+    <h2 class="char-list">{{page.title}}</h2>
+    <div class="archive">
+        {% for page in chapter_collection %}
+            <div class="cover-img">
+                <ul>
+                    <li><a href="{{page.url}}">
+                    {% for image in page.media.images %}
+                    {{ image.resize(200).html }}</a>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        {% endfor %}
+    </div>
+<div class="clear"></div>
+<hr>
+<h3 class="char-list" style="padding-top: 0.5em">Side Stories</h3>
+    <div class="archive">
+        {% for page in omake_collection %}
+            <div class="cover-img">
+                <ul>
+                    <li><a href="{{page.url}}">
+                    {% for image in page.media.images %}
+                    {{ image.resize(200).html }}
+                    <h3>{{ page.title }}</h3>
+                    </a>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        {% endfor %}
+    </div>
+
+
+    <div class="clear"></div>
+{% endblock %}
